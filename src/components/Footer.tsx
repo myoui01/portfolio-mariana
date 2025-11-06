@@ -12,11 +12,6 @@ const Footer = () => {
             Sinta-se à vontade para entrar em contato comigo se estiver procurando um desenvolvedor,
             tiver alguma dúvida ou simplesmente quiser se conectar.
           </p>
-            <p className="text-gray-600 text-sm flex items-center justify-center gap-1">
-              <span>2025 | Designed and coded with</span>
-              <MdFavorite className="text-red-500" />
-              <span>by Mariana Marques</span>
-            </p>
         </div>
       </div>
     </footer>
