@@ -1,5 +1,3 @@
-import { MdFavorite } from 'react-icons/md'
-
 const Footer = () => {
   return (
     <footer className="border-t border-gray-900/50 py-16 mt-20">
