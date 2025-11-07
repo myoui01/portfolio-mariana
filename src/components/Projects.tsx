@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
+import { FaGithub } from 'react-icons/fa'
 import collectyImage from '../assets/collecty.png'
 
 const Projects = () => {
@@ -11,29 +12,48 @@ const Projects = () => {
       title: 'Collecty Card',
       image: collectyImage,
       link: 'https://www.linkedin.com/posts/mariana-marques-dev_ol%C3%A1-gostaria-de-compartilhar-o-aplicativo-activity-7208622268501942272-C5Zk?utm_source=share&utm_medium=member_desktop&rcm=ACoAADjWweABv1ezKgWVtJvTa-8ASWlUMb7a6l0',
+      github: 'https://github.com/myoui01/app_collecty',
+      techs: ['Figma', 'TypeScript', 'Angular + Ionic', 'Firebase'],
+      summary:
+        'O CollectyCard combina um sistema de vendas com uma rede social para quem coleciona cards de K-pop, oferecendo uma experiência completa para fãs e vendedores.',
+      impact:
+        'Mesmo sendo um nicho específico, o aplicativo conquistou a comunidade: o vídeo de apresentação já ultrapassou 25 mil visualizações no Twitter e recebeu diversos comentários positivos.',
+      context:
+        'As vendas acontecem hoje de forma informal em redes sociais. O Collecty propõe resolver esse problema com mais organização, segurança e eficiência para colecionadores.',
+      extra:
+        'Disponibilizei uma landing page com vídeo demonstrativo, link para o repositório no GitHub e todas as telas desenhadas do produto.',
     },
     {
       id: 2,
       title: 'Projeto 2',
       image: 'https://via.placeholder.com/400x250?text=Reppub',
       link: '#',
+      techs: [],
+      summary: 'Em breve adicionarei mais detalhes sobre este projeto.',
     },
     {
       id: 3,
       title: 'Projeto 3',
       image: 'https://via.placeholder.com/400x250?text=Reppub',
       link: '#',
+      techs: [],
+      summary: 'Em breve adicionarei mais detalhes sobre este projeto.',
     },
     {
       id: 4,
       title: 'Projeto 4',
       image: 'https://via.placeholder.com/400x250?text=PicPay',
       link: '#',
+      techs: [],
+      summary: 'Em breve adicionarei mais detalhes sobre este projeto.',
     },
     {
       id: 5,
       title: 'Projeto 5',
-      image: 'https://via.placeholder.com/400x250'
+      image: 'https://via.placeholder.com/400x250',
+      link: '#',
+      techs: [],
+      summary: 'Em breve adicionarei mais detalhes sobre este projeto.',
     },
   ]
 
@@ -96,18 +116,62 @@ const Projects = () => {
                         </div>
                       )}
                     </div>
-                    <div className="p-5 flex items-center justify-between">
-                      <div className="flex-1">
-                        <h3 className="text-white font-semibold text-lg group-hover:text-gray-100 transition-colors">{project.title}</h3>
-                        {!hasRealLink && (
-                          <p className="text-gray-500 text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            Em breve será atualizado
-                          </p>
+                    <div className="p-6 space-y-4">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex-1">
+                          <h3 className="text-white font-semibold text-xl group-hover:text-gray-100 transition-colors">
+                            {project.title}
+                          </h3>
+                        </div>
+                        {project.github && project.github !== '#' && (
+                          <button
+                            onClick={(event) => {
+                              event.stopPropagation()
+                              window.open(project.github, '_blank', 'noopener,noreferrer')
+                            }}
+                            className="text-gray-500 hover:text-white transition-colors duration-200"
+                            aria-label={`Abrir repositório GitHub de ${project.title}`}
+                          >
+                            <FaGithub className="w-6 h-6" />
+                          </button>
                         )}
                       </div>
-                      <span className={`text-gray-600 group-hover:text-white group-hover:translate-x-1 transition-all duration-200 text-xl ${!hasRealLink ? 'opacity-50' : ''}`}>
-                        →
-                      </span>
+
+                      {project.techs && project.techs.length > 0 && (
+                        <div className="space-y-2">
+                          <div className="flex flex-wrap gap-2">
+                            {project.techs.map((tech) => (
+                              <span
+                                key={tech}
+                                className="text-xs text-gray-200 bg-gray-800/80 border border-gray-700/50 rounded-full px-3 py-1"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {project.summary && (
+                        <p className="text-gray-300 text-sm leading-relaxed">
+                          {project.summary}
+                        </p>
+                      )}
+                      {(project.impact || project.context || project.extra) && (
+                        <div className="space-y-3 text-sm text-gray-300 leading-relaxed">
+                          {project.impact && <p>{project.impact}</p>}
+                          {project.context && <p>{project.context}</p>}
+                          {project.extra && <p>{project.extra}</p>}
+                        </div>
+                      )}
+
+                      <div className="flex items-center justify-end">
+                        <span
+                          className={`text-gray-600 group-hover:text-white group-hover:translate-x-1 transition-all duration-200 text-xl ${!hasRealLink ? 'opacity-50' : ''}`}
+                        >
+                          →
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>

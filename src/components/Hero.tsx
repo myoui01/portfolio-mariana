@@ -2,6 +2,7 @@ import { MdDownload } from 'react-icons/md'
 import { FaGithub, FaLinkedin, FaBehance, FaWhatsapp } from 'react-icons/fa'
 import { HiOutlineArrowRight } from 'react-icons/hi'
 import euImage from '../assets/eu.jpg'
+import cvFile from '../assets/CV Mariana.pdf'
 
 const Hero = () => {
   return (
@@ -55,7 +56,8 @@ const Hero = () => {
             <HiOutlineArrowRight className="text-lg group-hover:translate-x-1 transition-transform" />
           </a>
           <a
-            href="#"
+            href={cvFile}
+            download="Mariana-Marques-CV.pdf"
             className="group inline-flex items-center gap-3 px-6 py-3 bg-gray-900 text-white border border-gray-700 rounded-lg font-medium hover:bg-gray-800 hover:border-gray-600 transition-all duration-200 hover:scale-105"
           >
             <MdDownload className="text-lg" />
